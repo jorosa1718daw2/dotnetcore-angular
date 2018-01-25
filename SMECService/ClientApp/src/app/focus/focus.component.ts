@@ -1,11 +1,12 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-focus',
   templateUrl: './focus.component.html'
 })
-export class FocusComponent {
+export class FocusComponent{
   public focus_list: Focus[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {

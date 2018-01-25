@@ -21,15 +21,10 @@
       <div class='row' *ngFor="let analyzer of focus.analyzers">
         <div class='col-sm-3'>{{ analyzer.manufacturer }} -  {{ analyzer.model}}</div>
         <div class='col'>
-          <div class='row' *ngFor="let sensor of analyzer.sensors">
-            <div class='col-sm-1'>{{ sensor.measuringComponent.name }}</div>
-            <div class='col-sm-1'>{{ sensor.currentAnalogData.value }}</div>
-            <div class='col-sm-1'>{{ sensor.unit.name }}</div>
-            <div class='col-sm-2' *ngIf="sensor.currentAnalogData.samples > 0; else elseBlock">EN SERVICIO</div>
-            <ng-template #elseBlock>
-              <div class='col-sm-2'>FUERA DE SERVICIO</div>
-            </ng-template>
-          </div>
+          <sensor-rt-data
+            *ngFor="let sensor of analyzer.sensors"
+            [sensor]="sensor">
+          </sensor-rt-data>
         </div>
       </div>
     </div>

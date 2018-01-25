@@ -2,7 +2,6 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/fake-backend';
 
@@ -21,8 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { FocusComponent } from './focus/focus.component';
-
-
+import { SensorRealTimeDataComponent } from './sensor-rt-data/sensor-rt-data.component';
+import { DataService } from './_services/data.service';
+ 
 
 
 @NgModule({
@@ -41,7 +41,8 @@ import { FocusComponent } from './focus/focus.component';
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        FocusComponent
+        FocusComponent,
+        SensorRealTimeDataComponent
     ],
     providers: [
         AuthGuard,
@@ -53,6 +54,7 @@ import { FocusComponent } from './focus/focus.component';
             useClass: JwtInterceptor,
             multi: true
         },
+        DataService,
 
         // provider used to create fake backend
         fakeBackendProvider
