@@ -1,0 +1,22 @@
+<h1>Focos de Emisiones</h1>
+
+<p>Listado de los focos de emisiones monitoritzados en planta.</p>
+
+<p *ngIf="!focus_list"><em>Cargando...</em></p>
+
+<table class='table' *ngIf="focus_list">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Analizador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let focus of focus_list">
+      <td>{{ focus.name }}</td>
+      <td>{{ focus.description }}</td>
+      <td>{{ focus.analyzers[0].manufacturer}} {{focus.analyzers[0].model }}</td>
+    </tr>
+  </tbody>
+</table>
